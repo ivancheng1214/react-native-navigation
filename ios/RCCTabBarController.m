@@ -442,6 +442,20 @@
   }
 }
 
+- (void)viewWillLayoutSubviews {
+  int height = 75;
+
+  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+  if (screenSize.height == 812) { // iPhone X
+    height = 85;
+  }
+
+  CGRect tabFrame = self.tabBar.frame;
+  tabFrame.size.height = height;
+  tabFrame.origin.y = self.view.frame.size.height - height;
+  self.tabBar.frame = tabFrame;
+}
+
 
 
 @end
